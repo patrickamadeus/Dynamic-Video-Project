@@ -1,3 +1,7 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +13,36 @@
 </head>
 <body>
     <div class = "vidbox">
-        <video controls>
+        <video id = "vid-0" controls>
             <source src = "vid/0-StartFF.mp4" type="video/mp4">
         </video>
+        
+        <a href = "#" id = "leftOverlay">
+            <p id = "topText">LEFT</p>
+        </a>
+        <a href = "#" id = "rightOverlay">
+            <p id = "topText">RIGHT</p>
+        </a>
+
+        <script>
+            //total video duration == 5.634 seconds
+            let v = document.getElementById("vid-0")
+            v.addEventListener('ended',function(event){
+                console.log('video ended')
+                document.getElementById("leftOverlay").style.display = "none"
+                document.getElementById("rightOverlay").style.display = "none"
+            })
+            v.addEventListener('timeupdate', function(event){
+                console.log('video currently playing')
+                console.log('max video duration : ' + v.duration)
+                console.log(event.target.currentTime)
+                if (v.duration - event.target.currentTime <= 3){
+                    document.getElementById("leftOverlay").style.display = "block"
+                    document.getElementById("rightOverlay").style.display = "block"
+                    console.log("Button Show")
+                }
+            })
+        </script>
     </div>
 </body>
 </html>

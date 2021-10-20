@@ -1,11 +1,64 @@
-body{
-    margin : 0 0 0 0;
-}
 .vidbox{
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top : 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /* padding-top: 75%; */
 }
 .vidbox video{
     width: 100%;
+    /* height: 100%; */
+    z-index: 0;
+    object-fit: cover;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+#leftOverlay {
+    display : none;
+    position:absolute;
+    width: 200px;
+    height: 100px;
+    background-color: #ddd;
+    top:50%;
+    left:30%;
+    z-index:1;
+    transition: 0.3s;
+    box-shadow: 0px 5px 5px  black;
+}
+
+#rightOverlay {
+    display : none;
+    position:absolute;
+    width: 200px;
+    height: 100px;
+    background-color: #ddd;
+    top: 50%;
+    right:35%;
+    z-index:1;
+    transition: 0.3s;
+    box-shadow: 0px 5px 5px  black;
+}
+
+#topText {
+    color: #000;
+    font-weight: bolder;
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
+#leftOverlay:hover{
+    background-color: crimson;
+    color: white;
+}
+
+#rightOverlay:hover{
+    background-color: blueviolet;
+    color: white;
 }
